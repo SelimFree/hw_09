@@ -23,14 +23,15 @@ def makeList(myList):
 
 
 def whatWeBought(myList):
-    for i in range(len(myList)):
-        if myList[i] != " ":
-            weBought = input(f"Have we bought {myList[i]}?  (Y/N)")
-            if weBought.upper() == "Y":
-                myList[i] = myList[i] + "  ** OK, Purchased"
-            elif weBought.upper() == "N":
-                pass
-            else: print("INVALID INPUT")
+    i = 0
+    while i < len(myList):
+        weBought = input(f"Have we bought {myList[i]}?  (Y/N)")
+        if weBought.upper() == "Y":
+            myList[i] = myList[i] + "  ** OK, Purchased"
+            i += 1
+        elif weBought.upper() == "N":
+            i += 1
+        else: print("INVALID INPUT")
 
 def writeToFile(myList):
     myfile = open("/Users/selim.altayev/Documents/Pecs/El_Programming/Python/hw_09/shopping.txt", "w")
